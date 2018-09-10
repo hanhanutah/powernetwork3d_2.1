@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.13.0/d3-legend.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="d3-3d.js"></script>
+<style>
+    #slidecontainer {
+        width: 1200px;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width:75%;
+        height: 15px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider:hover {
+        opacity: 1;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+
+
+
+    .highlighted{
+        stroke: yellow;;
+        stroke-width:4;
+    }
+
+    .toolTip {
+        position: absolute;
+        display: none;
+        min-width: 80px;
+        height: auto;
+        background: none repeat scroll 0 0 #ffffff;
+        border: 1px solid #6F257F;
+        padding: 14px;
+        text-align: center;
+    }
+    .track-overlay {
+        pointer-events: stroke;
+        stroke-width: 50px;
+        stroke: transparent;
+        cursor: crosshair;
+    }
+    .ticks {
+        font: 10px sans-serif;
+    }
+
+    .bar { fill: steelblue; }
+
+</style>
+<body>
+<div id="slidecontainer">
+    <input type="range" min="1" max="24" value="10" class="slider" id="myRange">
+    <svg width=910 height="20"></svg>
+    <p>Timepoint: <span id="demo"></span></p>
+</div>
+
+<div id = "timebar" class = "view">
+</div>
+
+<div id = "powernetwork" class = "view">
+    <g id="net1"></g>
+    <!--<svg width="960" height="700" id="threednetwork"></svg>-->
+</div>
+<script type="application/javascript" src="powernetwork_3d_6.js"></script>
+</body>
